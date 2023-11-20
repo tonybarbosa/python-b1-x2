@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-# Write your code here
 
 class Person:
     def __init__(self, dni: str, email: str, mobile: str):

@@ -94,13 +94,34 @@ suma total de impuestos. Por ejemplo:
 
 from bills import *
 from util_package.bill_manager import BillManager
+from bills.stats import Statistics, OrderType
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
-#bill_manager = BillManager()
-#bills = bill_manager.create_bills_example()
-#statistics = Statistics(bills)
-#statistics.show()
-#print(statistics.find_top_sell_product())
-#print(statistics.find_buyer_lowest_total_purchases())
-#print(statistics.find_top_two_sellers())
-#print(statistics.order_products_by_tax(OrderType.DES))
+print("creacion de clases dde bills         =========================================================")
+bill_manager = BillManager()  # prova exemple
+print("Creacion de clases de util_manager  s=========================================================")
+bills = bill_manager.create_bills_example() # prova exemple
+
+
+'''
+for bill in bills:
+    b = bill.buyer
+    print(f"Comprador: {b.full_name} (DNI: {b.dni})")
+    b.print()
+    print(b.age)
+    s = bill.seller
+    s.print()
+    print(s.bussines_name)  
+'''
+print("Creacion de clases de estadistics      =========================================================")
+statistics = Statistics(bills) # prova exemple
+print("impresion de facturas creadas          =========================================================")
+statistics.show() # prova exemple
+print("impresion  del producto mas vendido    =========================================================")
+print(statistics.find_top_sell_product()) # prova exemple
+print("impresion  del comprador con menor total de compras  =========================================================")
+print(statistics.find_buyer_lowest_total_purchases())
+print("impresion  de los 2 top vendedores     =========================================================")
+print(statistics.find_top_two_sellers())
+print("impresion  del productomas vendido por impuestos   =========================================================")
+print(statistics.order_products_by_tax(OrderType.DES))

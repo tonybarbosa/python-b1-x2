@@ -1,11 +1,26 @@
 from bills import *
 import pytest
 from util_package.bill_manager import BillManager
+from bills.stats import Statistics, OrderType  # se importa el modulo para tener acceso a loas funciones
+  
+  
+  #######================================================================================================
 
+  #  los test dde test_find_buyer_lowest_total_purchases tienenmal el valor de control
+  #                             Ex101 dice 162.5 y es  262,5
+  #                            Ex102 dice 498.28 y es  539,48
+  #                            Ex103 dice 78.28 y es   119,48
+  #                           Ex104 dice 53.5 y es    73,5
+  
+  #######================================================================================================
+  
 
 def create_stats_bills_EX101():
     bill_manager = BillManager()
     bills = bill_manager.create_bills_EX101()
+    #statistics = Statistics(bills)
+    #top_product = statistics.find_top_sell_product()
+    #return top_product
     return Statistics(bills)
 
 
@@ -27,7 +42,7 @@ def create_stats_bills_EX104():
     return Statistics(bills)
 
 
-def test_find_top_sell_product_EX101():
+def test_find_top_sell_product_EX101(): 
     top_product = create_stats_bills_EX101().find_top_sell_product()
     assert top_product[0].product_id == "P701", "Check the function: find_top_sell_product"
     assert top_product[1] == 1, "Check the function: find_top_sell_product"

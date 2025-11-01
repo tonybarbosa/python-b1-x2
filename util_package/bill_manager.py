@@ -1,4 +1,9 @@
-from bills import *
+from bills.entity import *
+from bills.item import *
+from bills.stats import * 
+
+
+
 from datetime import date
 
 # Do not change the follwing class
@@ -171,4 +176,6 @@ class BillManager:
         list_bills.append(bill_B102)
         list_bills.append(bill_B103)
 
+
         return list_bills
+

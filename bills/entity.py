@@ -66,8 +66,3 @@ class Seller(Person):
         # Do not change this method
         print(f"Seller: {self.dni} , email:{self.email} ")
 
-
-
-#### cargatr datos de prueba
-import util_package.bill_manager
-#bill_manager = util_package.bill_manager.BillManager()

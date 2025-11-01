@@ -31,13 +31,13 @@ class Statistics:
     def find_top_sell_product(self) -> (Product, int):
         # Write here your code
         products_count = {}
-        print("facturas: ", self.bills)
+        #print("facturas: ", self.bills)
         for bill in self.bills:
             for product in bill.products:
                 products_count[product] = products_count.get(product, 0) + 1
         if products_count:
             product_max = max(products_count, key=products_count.get)
-            print("producto mas vendido: ", product_max.product_id, product_max.name, ", ",products_count.get(product_max, 0))
+            #print("producto mas vendido: ", product_max.product_id, product_max.name, ", ",products_count.get(product_max, 0))
         return product_max, products_count.get(product_max, 0)
     
     '''
@@ -66,10 +66,10 @@ class Statistics:
         buyers_count = {}
         for bill in self.bills:
             buyers_count[bill.buyer] = buyers_count.get(bill.buyer, 0) + bill.calculate_total()
-        print("buyers count: ", buyers_count,"===================================")
+        #print("buyers count: ", buyers_count,"===================================")
         if buyers_count:
             buyer_min = min(buyers_count, key=buyers_count.get)
-            print("buyer with lowest total purchases: ", buyer_min.dni, ", ", buyers_count.get(buyer_min, 0))   
+            #print("buyer with lowest total purchases: ", buyer_min.dni, ", ", buyers_count.get(buyer_min, 0))   
         return buyer_min, buyers_count.get(buyer_min, 0)
 
     '''
@@ -87,7 +87,7 @@ class Statistics:
         for bill in self.bills:
             for product in bill.products:
                 products_tax[product] = products_tax.get(product, 0) + product.calculate_total_taxes()
-        print("productos por impuestos: ", products_tax)
+        #print("productos por impuestos: ", products_tax)
         if order_type == OrderType.ASC:
             return sorted(products_tax.items(), key=lambda x: x[1])
         else:
